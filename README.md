@@ -5,3 +5,4 @@
 * Lombok
 * PostgreSQL Driver
 * Spring Validation
+* MapStruct
