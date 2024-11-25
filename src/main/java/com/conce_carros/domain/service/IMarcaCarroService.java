@@ -27,6 +27,13 @@ public interface IMarcaCarroService {
     MarcaCarroPojo save(MarcaCarroPojo newMarcaCarro);
 
     /**
+     * Actualiza una marca carro
+     * @param marcaCarroPojoUpdate Marca carro a actualizar
+     * @return Marca carro actualizada
+     */
+    Optional<MarcaCarroPojo> update(MarcaCarroPojo marcaCarroPojoUpdate);
+
+    /**
      * Elimina una marca carro dado su id
      * @param idMarcaCarro Id de la marca carro a eliminar
      * @return true si se eliminó y false de lo contrario

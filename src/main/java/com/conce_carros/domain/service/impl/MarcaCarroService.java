@@ -50,6 +50,19 @@ public class MarcaCarroService implements IMarcaCarroService {
         return iMarcaCarroRepository.save(newMarcaCarro);
     }
 
+    /**
+     * Actualiza una marca de carro
+     * @param marcaCarroPojoUpdate Marca carro a actualizar
+     * @return Optional con marca de carro actualizada
+     */
+    @Override
+    public Optional<MarcaCarroPojo> update(MarcaCarroPojo marcaCarroPojoUpdate) {
+        if(iMarcaCarroRepository.getMarcaCarro(marcaCarroPojoUpdate.getId()).isEmpty()){
+            return Optional.empty();
+        }
+        return Optional.of(iMarcaCarroRepository.save(marcaCarroPojoUpdate));
+    }
+
 
     /**
      * Elimina una marca carro dado su id
@@ -58,11 +71,11 @@ public class MarcaCarroService implements IMarcaCarroService {
      */
     @Override
     public boolean delete(Integer idMarcaCarro) {
-        try {
-            iMarcaCarroRepository.delete(idMarcaCarro);
-            return true;
-        }catch (Exception e){
+
+        if(iMarcaCarroRepository.getMarcaCarro(idMarcaCarro).isEmpty()){
             return false;
         }
+        iMarcaCarroRepository.delete(idMarcaCarro);
+        return true;
     }
 }
