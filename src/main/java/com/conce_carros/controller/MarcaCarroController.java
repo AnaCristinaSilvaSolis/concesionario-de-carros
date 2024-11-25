@@ -2,6 +2,7 @@ package com.conce_carros.controller;
 
 import com.conce_carros.domain.pojo.MarcaCarroPojo;
 import com.conce_carros.domain.service.IMarcaCarroService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/marcas-carros")
+@Tag(name = "Marca Carro", description = "Controller for Marca Carro")
 public class MarcaCarroController {
 
     /**
