@@ -23,12 +23,12 @@ public interface IMarcaCarroMapper {
     @Mapping(source = "id", target = "id")
     @Mapping(source = "description", target = "description")
 
-    MarcaCarroPojo toMarcaCarroEntity(MarcaCarroEntity marcaEntity);
+    MarcaCarroPojo toMarcaCarroPojo(MarcaCarroEntity marcaEntity);
 
 
     /**
      * Convierte un pojo a una entidad de marca carro
-     * @param MarcaPojo Pojo a convertir
+     * @param marcaPojo Pojo a convertir
      * @return Entity convertido
      */
     @InheritInverseConfiguration
