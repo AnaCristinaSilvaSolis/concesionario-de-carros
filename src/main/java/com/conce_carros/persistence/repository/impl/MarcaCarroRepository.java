@@ -1,6 +1,6 @@
 package com.conce_carros.persistence.repository.impl;
 
-import com.conce_carros.domain.pojo.MarcaCarroPojo;
+import com.conce_carros.domain.dto.MarcaCarroDTO;
 import com.conce_carros.domain.repository.IMarcaCarroRepository;
 import com.conce_carros.persistence.entity.MarcaCarroEntity;
 import com.conce_carros.persistence.mapper.IMarcaCarroMapper;
@@ -33,8 +33,8 @@ public class MarcaCarroRepository implements IMarcaCarroRepository {
      * @return Lista con las marcas de carros
      */
     @Override
-    public List<MarcaCarroPojo> getAll() {
-        return iMarcaCarroMapper.toMarcasCarroPojo(iMarcaCarroCrudRepository.findAll());
+    public List<MarcaCarroDTO> getAll() {
+        return iMarcaCarroMapper.toMarcasCarroDTO(iMarcaCarroCrudRepository.findAll());
     }
 
     /**
@@ -43,9 +43,9 @@ public class MarcaCarroRepository implements IMarcaCarroRepository {
      * @return Optional de la marca carro encontrado
      */
     @Override
-    public Optional<MarcaCarroPojo> getMarcaCarro(Integer id) {
+    public Optional<MarcaCarroDTO> getMarcaCarro(Integer id) {
         return iMarcaCarroCrudRepository.findById(id)
-                .map(iMarcaCarroMapper::toMarcaCarroPojo);
+                .map(iMarcaCarroMapper::toMarcaCarroDTO);
     }
 
     /**
@@ -54,9 +54,9 @@ public class MarcaCarroRepository implements IMarcaCarroRepository {
      * @return Marca carro guardada
      */
     @Override
-    public MarcaCarroPojo save(MarcaCarroPojo newMarcaCarro) {
+    public MarcaCarroDTO save(MarcaCarroDTO newMarcaCarro) {
         MarcaCarroEntity marcaCarroEntity = iMarcaCarroMapper.toMarcaCarroEntity(newMarcaCarro);
-        return iMarcaCarroMapper.toMarcaCarroPojo(iMarcaCarroCrudRepository.save(marcaCarroEntity));
+        return iMarcaCarroMapper.toMarcaCarroDTO(iMarcaCarroCrudRepository.save(marcaCarroEntity));
     }
 
     /**

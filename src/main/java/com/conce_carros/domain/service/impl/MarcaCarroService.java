@@ -1,6 +1,6 @@
 package com.conce_carros.domain.service.impl;
 
-import com.conce_carros.domain.pojo.MarcaCarroPojo;
+import com.conce_carros.domain.dto.MarcaCarroDTO;
 import com.conce_carros.domain.repository.IMarcaCarroRepository;
 import com.conce_carros.domain.service.IMarcaCarroService;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ public class MarcaCarroService implements IMarcaCarroService {
      * @return Lista con marcas de carros
      */
     @Override
-    public List<MarcaCarroPojo> getAll() {
+    public List<MarcaCarroDTO> getAll() {
         return iMarcaCarroRepository.getAll();
     }
 
@@ -35,7 +35,7 @@ public class MarcaCarroService implements IMarcaCarroService {
      * @return Optional de la marca carro encontrado
      */
     @Override
-    public Optional<MarcaCarroPojo> getMarcaCarro(Integer id) {
+    public Optional<MarcaCarroDTO> getMarcaCarro(Integer id) {
         return iMarcaCarroRepository.getMarcaCarro(id);
     }
 
@@ -46,21 +46,21 @@ public class MarcaCarroService implements IMarcaCarroService {
      * @return Marca carro guardada
      */
     @Override
-    public MarcaCarroPojo save(MarcaCarroPojo newMarcaCarro) {
+    public MarcaCarroDTO save(MarcaCarroDTO newMarcaCarro) {
         return iMarcaCarroRepository.save(newMarcaCarro);
     }
 
     /**
      * Actualiza una marca de carro
-     * @param marcaCarroPojoUpdate Marca carro a actualizar
+     * @param marcaCarroDTOUpdate Marca carro a actualizar
      * @return Optional con marca de carro actualizada
      */
     @Override
-    public Optional<MarcaCarroPojo> update(MarcaCarroPojo marcaCarroPojoUpdate) {
-        if(iMarcaCarroRepository.getMarcaCarro(marcaCarroPojoUpdate.getId()).isEmpty()){
+    public Optional<MarcaCarroDTO> update(MarcaCarroDTO marcaCarroDTOUpdate) {
+        if(iMarcaCarroRepository.getMarcaCarro(marcaCarroDTOUpdate.getId()).isEmpty()){
             return Optional.empty();
         }
-        return Optional.of(iMarcaCarroRepository.save(marcaCarroPojoUpdate));
+        return Optional.of(iMarcaCarroRepository.save(marcaCarroDTOUpdate));
     }
 
 

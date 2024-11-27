@@ -1,6 +1,6 @@
 package com.conce_carros.controller;
 
-import com.conce_carros.domain.pojo.MarcaCarroPojo;
+import com.conce_carros.domain.dto.MarcaCarroDTO;
 import com.conce_carros.domain.service.IMarcaCarroService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +29,7 @@ public class MarcaCarroController {
      * @return HttpCode OK con lista de marcas carro
      */
     @GetMapping()
-    public ResponseEntity<List<MarcaCarroPojo>> getAll() {
+    public ResponseEntity<List<MarcaCarroDTO>> getAll() {
         return ResponseEntity.ok(iMarcaCarroService.getAll());
     }
 
@@ -39,7 +39,7 @@ public class MarcaCarroController {
      * @return HttpCode OK si la encuentra, Http Not Found de lo contrario
      */
     @GetMapping("/{id}")
-    public ResponseEntity<MarcaCarroPojo> getMarcaCarro(@PathVariable Integer id) {
+    public ResponseEntity<MarcaCarroDTO> getMarcaCarro(@PathVariable Integer id) {
         return ResponseEntity.of(iMarcaCarroService.getMarcaCarro(id));
     }
 
@@ -49,7 +49,7 @@ public class MarcaCarroController {
      * @return HttpCode Created si la guarda correctamente, HttpCode BadRequest de lo contrario
      */
     @PostMapping()
-    public ResponseEntity<MarcaCarroPojo> save (@RequestBody MarcaCarroPojo marcaCarroPojonew){
+    public ResponseEntity<MarcaCarroDTO> save (@RequestBody MarcaCarroDTO marcaCarroPojonew){
         try{
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(iMarcaCarroService.save(marcaCarroPojonew));
@@ -61,14 +61,14 @@ public class MarcaCarroController {
 
     /**
      * Actualiza una marca carro
-     * @param marcaCarroPojoUpdate Marca carro actualizada
+     * @param marcaCarroDTOUpdate Marca carro actualizada
      * @return HttpCode OK si la actualiza correctamente
      */
 
     @PatchMapping
-    public ResponseEntity<MarcaCarroPojo> update(@RequestBody MarcaCarroPojo marcaCarroPojoUpdate){
+    public ResponseEntity<MarcaCarroDTO> update(@RequestBody MarcaCarroDTO marcaCarroDTOUpdate){
 
-        return ResponseEntity.of(iMarcaCarroService.update(marcaCarroPojoUpdate));
+        return ResponseEntity.of(iMarcaCarroService.update(marcaCarroDTOUpdate));
     }
 
     /**

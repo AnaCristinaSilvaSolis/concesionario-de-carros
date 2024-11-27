@@ -1,4 +1,4 @@
-package com.conce_carros.domain.pojo;
+package com.conce_carros.domain.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -9,8 +9,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@Builder
-public class MarcaCarroPojo {
+public class MarcaCarroDTO {
 
     /**
      * id de la marca carro
