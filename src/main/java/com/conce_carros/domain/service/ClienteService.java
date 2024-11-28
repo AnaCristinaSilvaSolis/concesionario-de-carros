@@ -1,9 +1,9 @@
-package com.conce_carros.domain.service.impl;
+package com.conce_carros.domain.service;
 
 import com.conce_carros.domain.dto.ClienteDTO;
 import com.conce_carros.domain.dto.ResponseClienteDTO;
 import com.conce_carros.domain.repository.IClienteRepository;
-import com.conce_carros.domain.service.IClienteService;
+import com.conce_carros.domain.service.useCase.IClienteUseCase;
 import com.conce_carros.exception.CorreoValidationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.Optional;
  */
 @RequiredArgsConstructor
 @Service
-public class ClienteService implements IClienteService {
+public class ClienteService implements IClienteUseCase {
 
     private final IClienteRepository iClienteRepository;
 

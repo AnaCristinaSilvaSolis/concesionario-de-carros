@@ -1,7 +1,7 @@
 package com.conce_carros.controller;
 
 import com.conce_carros.domain.dto.MarcaCarroDTO;
-import com.conce_carros.domain.service.IMarcaCarroService;
+import com.conce_carros.domain.service.useCase.IMarcaCarroUseCase;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,7 @@ public class MarcaCarroController {
     /**
      * Servicio de marca carro
      */
-    private final IMarcaCarroService iMarcaCarroService;
+    private final IMarcaCarroUseCase iMarcaCarroUseCase;
 
     /**
      * Devuelve lista de marcas carro
@@ -30,7 +30,7 @@ public class MarcaCarroController {
      */
     @GetMapping()
     public ResponseEntity<List<MarcaCarroDTO>> getAll() {
-        return ResponseEntity.ok(iMarcaCarroService.getAll());
+        return ResponseEntity.ok(iMarcaCarroUseCase.getAll());
     }
 
     /**
@@ -40,7 +40,7 @@ public class MarcaCarroController {
      */
     @GetMapping("/{id}")
     public ResponseEntity<MarcaCarroDTO> getMarcaCarro(@PathVariable Integer id) {
-        return ResponseEntity.of(iMarcaCarroService.getMarcaCarro(id));
+        return ResponseEntity.of(iMarcaCarroUseCase.getMarcaCarro(id));
     }
 
     /**
@@ -52,7 +52,7 @@ public class MarcaCarroController {
     public ResponseEntity<MarcaCarroDTO> save (@RequestBody MarcaCarroDTO marcaCarroPojonew){
         try{
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(iMarcaCarroService.save(marcaCarroPojonew));
+                    .body(iMarcaCarroUseCase.save(marcaCarroPojonew));
         }catch (Exception e){
             //Todo: cambiar
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -68,7 +68,7 @@ public class MarcaCarroController {
     @PatchMapping
     public ResponseEntity<MarcaCarroDTO> update(@RequestBody MarcaCarroDTO marcaCarroDTOUpdate){
 
-        return ResponseEntity.of(iMarcaCarroService.update(marcaCarroDTOUpdate));
+        return ResponseEntity.of(iMarcaCarroUseCase.update(marcaCarroDTOUpdate));
     }
 
     /**
@@ -78,7 +78,7 @@ public class MarcaCarroController {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Integer id){
-        return new ResponseEntity<>(this.iMarcaCarroService.delete(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(this.iMarcaCarroUseCase.delete(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
 }

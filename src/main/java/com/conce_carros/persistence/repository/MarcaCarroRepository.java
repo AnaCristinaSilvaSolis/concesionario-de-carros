@@ -1,10 +1,10 @@
-package com.conce_carros.persistence.repository.impl;
+package com.conce_carros.persistence.repository;
 
 import com.conce_carros.domain.dto.MarcaCarroDTO;
 import com.conce_carros.domain.repository.IMarcaCarroRepository;
 import com.conce_carros.persistence.entity.MarcaCarroEntity;
 import com.conce_carros.persistence.mapper.IMarcaCarroMapper;
-import com.conce_carros.persistence.repository.IMarcaCarroCrudRepository;
+import com.conce_carros.persistence.repository.crud.IMarcaCarroCrudRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

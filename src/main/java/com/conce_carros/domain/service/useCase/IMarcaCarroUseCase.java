@@ -1,11 +1,11 @@
-package com.conce_carros.domain.service;
+package com.conce_carros.domain.service.useCase;
 
 import com.conce_carros.domain.dto.MarcaCarroDTO;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface IMarcaCarroService {
+public interface IMarcaCarroUseCase {
     /**
      * Devuelve una lista con todas las marcas de carros
      * @return Lista con marcas de carros

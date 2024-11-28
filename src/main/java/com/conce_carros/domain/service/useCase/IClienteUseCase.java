@@ -1,7 +1,6 @@
-package com.conce_carros.domain.service;
+package com.conce_carros.domain.service.useCase;
 
 import com.conce_carros.domain.dto.ClienteDTO;
-import com.conce_carros.domain.dto.MarcaCarroDTO;
 import com.conce_carros.domain.dto.ResponseClienteDTO;
 
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.Optional;
 /**
  * Interface de servicio de Cliente
  */
-public interface IClienteService {
+public interface IClienteUseCase {
 
     /**
      * Devuelve una lista con todos los clientes

@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Entidad de marca carro
  */
@@ -26,4 +29,8 @@ public class MarcaCarroEntity {
      */
     @Column(name = "descripcion")
     private String description;
+
+    @OneToMany(mappedBy = "marcaCarroEntity", orphanRemoval = true)
+    private List<CarroEntity> carroEntities;
+
 }

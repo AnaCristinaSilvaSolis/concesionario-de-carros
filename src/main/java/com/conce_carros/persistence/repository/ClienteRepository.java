@@ -1,9 +1,9 @@
-package com.conce_carros.persistence.repository.impl;
+package com.conce_carros.persistence.repository;
 
 import com.conce_carros.domain.dto.ClienteDTO;
 import com.conce_carros.domain.repository.IClienteRepository;
 import com.conce_carros.persistence.mapper.IClienteMapper;
-import com.conce_carros.persistence.repository.IClienteCrudRepository;
+import com.conce_carros.persistence.repository.crud.IClienteCrudRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

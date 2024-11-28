@@ -31,6 +31,7 @@ public interface IMarcaCarroMapper {
      * @return Entity convertido
      */
     @InheritInverseConfiguration
+    @Mapping(target = "carroEntities", ignore = true)
     MarcaCarroEntity toMarcaCarroEntity(MarcaCarroDTO marcaDTO);
 
 
