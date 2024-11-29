@@ -16,6 +16,7 @@ public interface ICarroMapper {
     CarroDTO toCarroDTO(CarroEntity carroEntity);
 
     @Mapping(target = "marcaCarroEntity", ignore = true)
+    @Mapping(target = "carroCompraEntity", ignore = true)
     CarroEntity toCarroEntity(CarroDTO carroDTO);
 
     List<CarroDTO> toCarrosDTO(List<CarroEntity> carroEntityList);

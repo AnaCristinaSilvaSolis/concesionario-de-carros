@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * Entidad de Carro
  */
@@ -54,5 +56,8 @@ public class CarroEntity {
     @ManyToOne
     @JoinColumn(name = "marca_carro_id", insertable = false, updatable = false)
     private MarcaCarroEntity marcaCarroEntity;
+
+    @OneToMany(mappedBy = "carroEntity", cascade = {CascadeType.ALL})
+    private List<CarroCompraEntity> carroCompraEntity;
 
 }

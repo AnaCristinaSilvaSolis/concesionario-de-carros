@@ -30,7 +30,7 @@ public class MarcaCarroEntity {
     @Column(name = "descripcion")
     private String description;
 
-    @OneToMany(mappedBy = "marcaCarroEntity", orphanRemoval = true)
+    @OneToMany(mappedBy = "marcaCarroEntity", cascade = {CascadeType.ALL})
     private List<CarroEntity> carroEntities;
 
 }
